@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>The Meta Tag Checker.</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    
+    <meta name="title" content="The Meta Tag Checker." />    
+    <meta name="description" conte="Tool for checking that a web page has necessary meta tags, such as Facebook open graph tags and Twitter card tags." />    
+    
+    <link rel="stylesheet" href="frontend/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    
+    
+</head>
+<body ng-app="MetaChecker">
+    
+    <div ng-controller="MetaCheckerController">
+        <h1>The Meta Tag Checker.</h1>
+        <p class="subhead">Paste a URL below to check if (most) meta tags have been filled in.</p>
+
+        <form class="input-url" method="post" ng-submit="submit()" form-autofill-fix>
+            <input type="text" placeholder="Enter URL here..." name="url" id="url-input" ng-model="url" autofocus>
+            <button id="url-button" type="submit">Test!</button>
+        </form>
+
+        <div>{{message}}</span>
+            
+            <div class="judgement" ng-show="showResults" ng-if="d.overall === true">✔︎  No obvious errors, <span class="small">but make sure to check below</span>.</div>
+            <div class="judgement" ng-show="showResults" ng-if="!d.overall"><span class="missing">✖︎  Some items are incorrect. Check below.</span></div>
+            
+
+            
+            <div class="full-results" ng-show="showResults">
+                
+                <button ng-if="!showInfo" ng-click="toggleInfo()">Show full tag info</button>
+                <button ng-if="showInfo" ng-click="toggleInfo()">Hide full tag info</button>
+                
+                    <div class="group" ng-repeat="(i,group) in groups">
+                            <h3>{{group}}</h3>
+                        <div ng-repeat="(key,val) in d.details">
+                            <div class="row-item" ng-if="val.group === group" >
+                                <div class="col-item" ng-class="!val.ok ? 'error-message' : '' ">
+                                    <div class="longname">{{val.longname}}</div>
+                                    <div class="selector" ng-if="(showInfo || !val.ok)">{{val.selector}}</div>
+                                    <div class="error-internal" ng-if="(showInfo || !val.ok)">{{val.hint}} <a ng-if="val.url" href={{val.url}}>More info</a></div>
+                                </div><!--
+                             --><div class="col-item" ng-if="val.type === 'image'">
+                                    <img class="teaser-image" ng-src="{{val.contents}}">
+                                </div><!--
+                             --><div class="col-item" ng-if="val.type !== 'image'">
+                                    {{val.contents}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+          
+            </div>
+            
+            <p class="footer"><a  target="_self" ng-href="./api/index.php?url={{currentUrl}}">API version of this check</a> | The Meta Tag Checker. v1.0.0 | <a href="https://github.com/dowjones">View source on Github</a></p>
+            
+
+
+    </div>
+    
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="frontend/script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

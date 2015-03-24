@@ -1,0 +1,189 @@
+[
+    {
+        "selector": "title",
+        "group": "Main tags",
+        "longname": "Title tag",
+        "pattern": "\/.\/",
+        "hint": "Should be the same as headline."
+    },
+    {
+        "selector": "meta[name='title']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Meta title tag",
+        "pattern": "\/.\/",
+        "hint": "Should be the same as headline."
+    },
+    {
+        "selector": "meta[name='keywords']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Meta keywords",
+        "pattern": "\/,\/",
+        "hint": "Should be a series of comma-separated keywords."
+    },
+    {
+        "selector": "meta[name='author']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Author tag",
+        "pattern": "\/[^(WSJ.com News Graphics)]\/",
+        "hint": "Should be the same as graphic byline."
+    },
+    {
+        "selector": "div.meta",
+        "group": "Main tags",
+        "longname": "Published date",
+        "pattern": "\/^((?!Published July 4, 2015 at 2:09 p.m. ET).)*$\/",
+        "hint": "Should be changed from the template default."
+    },
+    {
+        "selector": "meta[name='description']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Description tag",
+        "pattern": "\/.\/",
+        "hint": "Should be short description for google results/social sharing."
+    },
+    {
+        "selector": "link[rel='canonical']",
+        "attribute": "href",
+        "group": "Main tags",
+        "longname": "Canonical URL",
+        "pattern": "\/(^http)\/",
+        "hint": "Should be the graphics's final URL."
+    },
+    {
+        "selector": "link[rel='image_src']",
+        "attribute": "href",
+        "group": "Main tags",
+        "longname": "Teaser image",
+        "type": "image",
+        "pattern": "\/(^http)\/",
+        "hint": "URL of a promo image."
+    },
+    {
+        "selector": "meta[property='og:image']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook teaser image",
+        "type": "image",
+        "pattern": "custom:fbImageDimensions",
+        "hint": "Should be a URL of a promo image with dimensions 1,200 x 627 pixels."
+    },
+    {
+        "selector": "meta[property='og:title']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook title",
+        "pattern": "\/.\/",
+        "hint": "Should be the same as regular headline."
+    },
+    {
+        "selector": "meta[property='og:url']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook URL",
+        "pattern": "\/(^http)\/",
+        "hint": "Should be page URL."
+    },
+    {
+        "selector": "meta[property='og:site_name']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook site name",
+        "pattern": "\/WSJ\/",
+        "hint": "Should be 'WSJ'."
+    },
+    {
+        "selector": "meta[property='og:type']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook content type",
+        "pattern": "\/article\/",
+        "hint": "Should be 'article'."
+    },
+    {
+        "selector": "meta[property='fb:app_id']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook app ID",
+        "pattern": "\/368513495882\/",
+        "hint": "Should be '368513495882'."
+    },
+    {
+        "selector": "meta[property='article:publisher']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook article publisher",
+        "pattern": "\/https:\\/\\/www.facebook.com\\/wsj\/",
+        "hint": "Should be 'https://www.facebook.com/wsj'."
+    },
+    {
+        "selector": "meta[name='twitter:title']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter title",
+        "pattern": "\/.\/",
+        "hint": "Should be same as headline."
+    },
+    {
+        "selector": "meta[name='twitter:description']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter description",
+        "pattern": "\/.\/",
+        "hint": "Should be same as normal meta description."
+    },
+
+    {
+        "selector": "meta[name='twitter:image:src']",
+        "attribute": "content",
+        "type": "image",
+        "group": "Twitter",
+        "longname": "Twitter card image",
+        "pattern": "\/(^http)\/",
+        "hint": "URL of promo image."
+    },
+
+    {
+        "selector": "meta[name='twitter:domain']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter domain",
+        "pattern": "\/WSJ.com\/",
+        "hint": "Should be 'WSJ.com'."
+    },
+    {
+        "selector": "meta[name='twitter:card']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter card type",
+        "pattern": "\/summary_large_image\/",
+        "hint": "Should be 'summary_large_image'."
+    },
+    {
+        "selector": "meta[name='twitter:site']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter site",
+        "pattern": "\/@wsj\/",
+        "hint": "Should be '@wsj'."
+    },
+    {
+        "selector": "custom:omnitureCheck",
+        "group": "Omniture",
+        "longname": "Omniture tracking",
+        "pattern": "\/[^(WSJ_infogrfx_interactive_Interactive proj ID_Interactive proj HEADLINE)]\/",
+        "hint": "Page should include Omniture project ID (slug) and headline in the trackingOpts JavaScript variable."
+    }    
+    
+    
+    
+    
+    
+    
+]
+
+
+

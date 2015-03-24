@@ -1,0 +1,164 @@
+[
+    {
+        "selector": "title",
+        "group": "Main tags",
+        "longname": "Title tag",
+        "pattern": "\/.\/",
+        "hint": "What appears in search results and browser tabs."
+    },
+    {
+        "selector": "meta[name='title']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Meta title tag",
+        "pattern": "\/.\/",
+        "hint": "Should be the same as title tag."
+    },
+    {
+        "selector": "meta[name='keywords']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Meta keywords",
+        "pattern": "\/,\/",
+        "hint": "Should be a series of comma-separated keywords."
+    },
+    {
+        "selector": "meta[name='author']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Author tag",
+        "pattern": "\/.\/",
+        "hint": "If appropriate, author(s) of page contents."
+    },
+    {
+        "selector": "meta[name='description']",
+        "attribute": "content",
+        "group": "Main tags",
+        "longname": "Description tag",
+        "pattern": "\/.\/",
+        "hint": "Should be short description for google results/social sharing."
+    },
+    {
+        "selector": "link[rel='canonical']",
+        "attribute": "href",
+        "group": "Main tags",
+        "longname": "Canonical URL",
+        "pattern": "\/(^http)\/",
+        "hint": "Should be the page's URL."
+    },
+    {
+        "selector": "link[rel='image_src']",
+        "attribute": "href",
+        "group": "Main tags",
+        "longname": "Teaser image",
+        "type": "image",
+        "pattern": "\/(^http)\/",
+        "hint": "URL of a promo image."
+    },
+    {
+        "selector": "meta[property='og:image']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook teaser image",
+        "type": "image",
+        "pattern": "\/(^http)\/",
+        "hint": "URL of a promo image, ideally with dimensions 1,200 x 627 pixels."
+    },
+    {
+        "selector": "meta[property='og:title']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook title",
+        "pattern": "\/.\/",
+        "hint": "Should be the same as page title."
+    },
+    {
+        "selector": "meta[property='og:url']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook URL",
+        "pattern": "\/(^http)\/",
+        "hint": "Should be page URL."
+    },
+    {
+        "selector": "meta[property='og:site_name']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook site name",
+        "pattern": "\/.\/",
+        "hint": "Name for overall site, eg. 'The Wall Street Journal'."
+    },
+    {
+        "selector": "meta[property='og:type']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook content type",
+        "pattern": "\/.\/",
+        "hint": "Type of content on page.",
+        "url": "http://ogp.me/#types"
+    },
+    {
+        "selector": "meta[property='fb:app_id']",
+        "attribute": "content",
+        "group": "Facebook",
+        "longname": "Facebook app ID",
+        "pattern": "\/.\/",
+        "hint": "Allows linking Domain Insights to an app",
+        "url": "https://developers.facebook.com/docs/platforminsights/domains"
+    },
+    {
+        "selector": "meta[name='twitter:title']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter title",
+        "pattern": "\/.\/",
+        "hint": "Should be same as page title."
+    },
+    {
+        "selector": "meta[name='twitter:description']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter description",
+        "pattern": "\/.\/",
+        "hint": "Should be same as normal meta description."
+    },
+
+    {
+        "selector": "meta[name='twitter:image:src']",
+        "attribute": "content",
+        "type": "image",
+        "group": "Twitter",
+        "longname": "Twitter image",
+        "pattern": "\/(^http)\/",
+        "hint": "URL of promo image."
+    },
+
+    {
+        "selector": "meta[name='twitter:domain']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter domain",
+        "pattern": "\/.\/",
+        "hint": "Root domain of your website."
+    },
+    {
+        "selector": "meta[name='twitter:card']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter card type",
+        "pattern": "\/.\/",
+        "hint": "Should be one of: 'summary', 'photo', 'summary_large_image', etc.",
+        "url": "https://dev.twitter.com/cards/types"
+    },
+    {
+        "selector": "meta[name='twitter:site']",
+        "attribute": "content",
+        "group": "Twitter",
+        "longname": "Twitter site",
+        "pattern": "\/^@.\/",
+        "hint": "Parent side Twitter username, including the '@' symbol."
+    }
+]
+
+
+
