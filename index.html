@@ -46,12 +46,7 @@
                                     <div class="selector" ng-if="(showInfo || !val.ok)">{{val.selector}}</div>
                                     <div class="error-internal" ng-if="(showInfo || !val.ok)">{{val.hint}} <a ng-if="val.url" href={{val.url}}>More info</a></div>
                                 </div><!--
-                             --><div class="col-item" ng-if="val.type === 'image'">
-                                    <img class="teaser-image" ng-src="{{val.contents}}">
-                                </div><!--
-                             --><div class="col-item" ng-if="val.type !== 'image'">
-                                    {{val.contents}}
-                                </div>
+                             --><formatted-content class="col-item" contents="{{val.contents}}" type="{{val.type}}">
                             </div>
                         </div>
                     </div>
@@ -59,7 +54,7 @@
           
             </div>
             
-            <p class="footer"><a  target="_self" ng-href="./api/index.php?url={{currentUrl}}">API version of this check</a> | The Meta Tag Checker. v1.0.0 | <a href="https://github.com/dowjones/the-meta-tag-checker">View source on Github</a></p>
+            <p class="footer"><a  target="_self" ng-href="./api/index.php?url={{currentUrl}}">API version of this check</a> | The Meta Tag Checker. v1.0.1 | <a href="https://github.com/dowjones/the-meta-tag-checker">View source on Github</a></p>
             
 
 

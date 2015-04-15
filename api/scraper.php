@@ -30,7 +30,7 @@ function checkUrl( $url ) {
     if (!$file) {
         return false;
     }    
-    
+        
     $html = new simple_html_dom();
     $html->load($file);
     
@@ -50,6 +50,7 @@ function checkUrl( $url ) {
             $attribute = 'innertext';
         }
         $regex = $item['pattern'];
+        $type = strtolower($item['type']);
         
         if (substr( $selector, 0, 6 ) === "custom") {
             $customFunctionName = str_replace( 'custom:', '', $selector );
@@ -97,7 +98,24 @@ function checkUrl( $url ) {
             }
         }
         
-        
+       // check URLs are valid
+       if (($type === 'url') || ($type === 'strict-url')) {
+           $strict = false;
+           if ($type === 'strict-url') {
+               $strict = true;
+           }
+           $item_url = $schema[$i]['contents'];
+           if (function_exists('file_get_contents_with_proxy')) {    
+               file_get_contents_with_proxy( $item_url );
+           } else {
+               file_get_contents( $item_url );
+           }
+           $headerStatus = checkHeaderStatus($http_response_header, $strict);
+           $schema[$i]['_requestHeader'] = $http_response_header;
+           if ( !is_null($http_response_header) && ($headerStatus === false) ) {
+               $schema[$i]['ok'] = false;
+           }
+       }
         
     }
     return $schema;
@@ -111,3 +129,21 @@ function overallCheck( $results ) {
     }
     return true;
 }
+
+function checkHeaderStatus( $headers, $strict = false ){
+    $status = $headers[0];
+    $pattern = '/(\d\d\d)/';
+    
+    preg_match($pattern, $status, $matches);
+    $code = intval( $matches[0] );
+            
+    if ( ($strict === true) && ($code >= 200) && ($code < 300) ) {
+        return true;
+    } else if ( ($strict === false) && ($code >= 200) && ($code < 400) ) {
+        return true;
+    }
+    return false;
+}
+
+
+

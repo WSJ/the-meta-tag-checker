@@ -86,6 +86,24 @@ app.factory('metaHelper', function(){
 });
 
 
+app.directive('formattedContent', function() {
+    return {
+        restrict: 'E',
+        link: function(scope, element, attrs){
+            var html = attrs.contents;
+            if (attrs.type === 'image') {
+                var html = '<img class="teaser-image" src="'+attrs.contents+'">';
+            }
+            if (attrs.type.toLowerCase().indexOf('url') > -1) {
+                var html = '<a href="'+attrs.contents+'" class="teaser-image">'+attrs.contents+'</a>';
+            }
+            $(element).html( html );
+            
+        }
+    };
+});
+
+
 
 
 

@@ -34,7 +34,7 @@ pattern | \/(^http:\\/\\/)\/ | Regex (regular expression) which validates conten
 hint | URL of a promo image. | Human-readable description of the pattern.
 group | meta | (optional) Used to sort tags into groups.
 longname | Teaser image | Descriptive name for humans.
-type | image | (optional) Set to 'image' if result should be a JPG/PNG/GIF.
+type | image | (optional) Set to 'image' if result should be a JPG/PNG/GIF. Other options: 'url', 'strict-url' (see below for more details).
 url | https://dev.twitter.com/cards/types | (optional) URL with further information about meta tag.
 
 ### Example regex rules
@@ -94,11 +94,21 @@ Then in `schema.json`, specify the function's name in the *pattern* field of you
 }
 ```
 
+## Content types
+
+- 'image': Renders content on frontend in <img> tag.
+- 'url': Checks header of URL to make sure link is valid, and renders in <a> tag.
+- 'strict-url': Same as 'url', but rejects redirect headers (eg. 301s). Useful for canonical URLs.
+
 ## Running behind a proxy
 
 Add a file called *proxy.php* to the config directory with a function called `file_get_contents_with_proxy`. This function should accept a URL as an argument, and return the HTML of the specified URL.
 
 ## Changelog
+
+### 1.0.1
+
+- New content types: 'url' and 'strict-url'
 
 ### 1.0.0
 

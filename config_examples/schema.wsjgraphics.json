@@ -51,7 +51,8 @@
         "group": "Main tags",
         "longname": "Canonical URL",
         "pattern": "\/(^http)\/",
-        "hint": "Should be the graphics's final URL."
+        "hint": "Should be the page's exact URL. May need a  slash (/) on the end of the URL.",
+        "type": "strict-url"
     },
     {
         "selector": "link[rel='image_src']",
@@ -85,7 +86,8 @@
         "group": "Facebook",
         "longname": "Facebook URL",
         "pattern": "\/(^http)\/",
-        "hint": "Should be page URL."
+        "hint": "Should be the page's exact URL. May need a  slash (/) on the end of the URL.",
+        "type": "strict-url"
     },
     {
         "selector": "meta[property='og:site_name']",
