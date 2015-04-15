@@ -102,9 +102,13 @@ Then in `schema.json`, specify the function's name in the *pattern* field of you
 
 ## Running behind a proxy
 
-Add a file called *proxy.php* to the config directory with a function called `file_get_contents_with_proxy`. This function should accept a URL as an argument, and return the HTML of the specified URL.
+Add a file called *proxy.php* to the config directory. Within the file, use [`stream_context_set_default`](http://php.net/manual/en/function.stream-context-set-default.php) to configure the proxy.
 
 ## Changelog
+
+### 2.0.0
+
+- Simplified proxy configuration
 
 ### 1.0.1
 

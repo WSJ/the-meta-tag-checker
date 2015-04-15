@@ -12,4 +12,4 @@ Used to specify custom selectors and validators. See Readme for more info.
 
 ## proxy.php
 
-Add a file called *proxy.php* to the config directory with a function called `file_get_contents_with_proxy`. This function should accept a URL as an argument, and return the HTML of the specified URL.
+Add a file called *proxy.php* to the config directory. Within the file, use [`stream_context_set_default`](http://php.net/manual/en/function.stream-context-set-default.php) to configure the proxy.

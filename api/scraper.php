@@ -10,7 +10,6 @@ if ( file_exists('../config/proxy.php') ) {
     include '../config/proxy.php';
 }
 
-
 function checkUrl( $url ) {
     
     if ( file_exists('../config/custom.php') ) {
@@ -21,11 +20,7 @@ function checkUrl( $url ) {
         return false;
     }
     
-    if (function_exists('file_get_contents_with_proxy')) {    
-        $file = file_get_contents_with_proxy( $url );
-    } else {
-        $file = file_get_contents( $url );
-    }
+    $file = file_get_contents( $url );
         
     if (!$file) {
         return false;
@@ -105,15 +100,13 @@ function checkUrl( $url ) {
                $strict = true;
            }
            $item_url = $schema[$i]['contents'];
-           if (function_exists('file_get_contents_with_proxy')) {    
-               file_get_contents_with_proxy( $item_url );
-           } else {
+           if (!empty($item_url)) {
                file_get_contents( $item_url );
-           }
-           $headerStatus = checkHeaderStatus($http_response_header, $strict);
-           $schema[$i]['_requestHeader'] = $http_response_header;
-           if ( !is_null($http_response_header) && ($headerStatus === false) ) {
-               $schema[$i]['ok'] = false;
+               $headerStatus = checkHeaderStatus($http_response_header, $strict);
+               $schema[$i]['_requestHeader'] = $http_response_header;
+               if ( !is_null($http_response_header) && ($headerStatus === false) ) {
+                   $schema[$i]['ok'] = false;
+               }
            }
        }
         
