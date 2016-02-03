@@ -106,6 +106,10 @@ Add a file called *proxy.php* to the config directory. Within the file, use [`st
 
 ## Changelog
 
+### 2.0.1
+
+- Shorter timeout when checking URL validity
+
 ### 2.0.0
 
 - Simplified proxy configuration

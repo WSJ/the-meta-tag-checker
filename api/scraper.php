@@ -101,11 +101,18 @@ function checkUrl( $url ) {
            }
            $item_url = $schema[$i]['contents'];
            if (!empty($item_url)) {
-               file_get_contents( $item_url );
-               $headerStatus = checkHeaderStatus($http_response_header, $strict);
-               $schema[$i]['_requestHeader'] = $http_response_header;
-               if ( !is_null($http_response_header) && ($headerStatus === false) ) {
-                   $schema[$i]['ok'] = false;
+               try {
+                   $ctx = stream_context_create(array(
+                       'http' => array('timeout' => 2)
+                   ));
+                   file_get_contents( $item_url );
+                   $headerStatus = checkHeaderStatus($http_response_header, $strict);
+                   $schema[$i]['_requestHeader'] = $http_response_header;
+                   if ( !is_null($http_response_header) && ($headerStatus === false) ) {
+                       $schema[$i]['ok'] = false;
+                   }
+               } catch (Exception $e) {
+                   
                }
            }
        }

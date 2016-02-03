@@ -1,6 +1,6 @@
 <?php
 
-// error_reporting(0);
+error_reporting(0);
 header('Content-Type: application/json');
 
 if (isset($_GET['url']) && $_GET['url'] !== '') {
